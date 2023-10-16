@@ -27,10 +27,23 @@ Remember to:
 */
 
 // 1. Database connection constants (Replace with actual values)
-const DB_HOST = "your_database_host";
-const DB_USER = "your_database_username";
-const DB_PASS = "your_database_password";
-const DB_NAME = "your_database_name";
+const DB_HOST = "postgres-php";
+const DB_USER = "admin";
+const DB_PASS = "password";
+const DB_NAME = "INFT2100-F2023";
+const DB_PORT = "5432";
+
+const COOKIE_LIFESPAN = "2592000"; // 1 month: min:60 x sec:60 x day: 24 * day/month: 30
+
+const ADMIN = 's';
+
+const AGENT = 'a';
+
+const CLIENT = 'c';
+
+const PENDING = 'p';
+
+const DISABLED = 'd';
 
 // 2. Other application-wide constants can be defined below
 

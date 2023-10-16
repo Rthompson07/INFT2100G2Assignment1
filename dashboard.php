@@ -202,6 +202,6 @@ echo "Welcome [User Name]!"; // Replace [User Name] with actual name from databa
 echo "<a href='logout.php'>Log Out</a>";
 
 // 7. Include the footer
-include '../Assignment1-G2/include/header.php';
+include 'include/header.php';
 ?>
 

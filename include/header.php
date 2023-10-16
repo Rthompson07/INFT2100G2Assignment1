@@ -26,9 +26,9 @@ session_start();
 ob_start();
 
 // 2. Include the required PHP files
-require_once '../config/constants.php';
-require_once '../lib/db_php.php';
-require_once '../lib/functions.php';
+require_once 'config/constants.php';
+require_once 'lib/db_php.php';
+require_once 'lib/functions.php';
 
 
 // 3. Insert the beginning structure of the HTML layout (You can expand on this as necessary)
@@ -36,13 +36,16 @@ echo '<!DOCTYPE html>
 <html lang="en">
 <head>
      <!-- Link to the Bootstrap CSS library-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" 
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="../assets/styles.css" rel="stylesheet">
+<!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="assets/styles.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment 1 Group 2</title> 
-    <link rel="icon" href ="../images/hippo-solid.svg" type="image/x-icon">  
+    <link rel="icon" href ="images/hippo-solid.svg" type="image/x-icon">  
 </head>
 <body>
     <div class ="header">
