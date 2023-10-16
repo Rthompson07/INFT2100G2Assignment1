@@ -51,7 +51,7 @@ echo '<!DOCTYPE html>
     <div class ="header">
         <div class ="inner_header">
             <div class = "logo_container">
-            <img src="../images/hippo-solid.svg" alt="hippo logo">
+            <img src="./images/hippo-solid.svg" alt="hippo logo">
             <h1>INFT-2100 Group 2&apos;s<span> Website</span></h1>
             </div>
             
