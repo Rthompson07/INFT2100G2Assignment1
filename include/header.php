@@ -53,7 +53,7 @@ echo '<!DOCTYPE html>
             </div>
             
             <ul class = "navbar_header">
-            <a href=http://localhost:63342/Assignment1-G2/index.php><li>Home</li></a>
+            <a href=http://localhost:8080/Assignment1/index.php><li>Home</li></a>
             <a><li>Sign Up</li></a>
             <a><li>Sign In</li></a>
             <a><li>About</li></a>
