@@ -22,8 +22,8 @@ Remember to:
 */
 
 // 1. Start session and output buffer
-session_start();
-ob_start();
+//session_start();
+//ob_start();
 
 // 2. Include the required PHP files
 require_once 'config/constants.php';
