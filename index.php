@@ -3,7 +3,7 @@
 <?php
 session_start();
 
-require_once 'lib/db.php';
+require_once 'lib/db_php.php';
 require_once 'include/header.php';
 
 $conn = db_connect();
