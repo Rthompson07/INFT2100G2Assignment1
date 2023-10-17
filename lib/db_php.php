@@ -1,7 +1,7 @@
 <?php
 
 // 1. Include constants.php
-// include_once "constants.php"
+require_once "./config/constants.php";
 $connection = null;
 
 /**
@@ -15,7 +15,7 @@ function db_connect(): mixed
     global $connection;
 
     if(!$connection) {
-        $conn_string = sprintf("host=%s port=%s dbname=%s user=%s",
+        $conn_string = sprintf("host=%s port=%s dbname=%s user=%s password=%s",
             DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
         $connection = pg_connect($conn_string);
     }
@@ -43,6 +43,7 @@ function hash_password($plainPassword) : string {
     //Generate random salt for crypt function
     $salt_query = "SELECT gen_salt('bf')";
     $salt_result = pg_query($connection, $salt_query);
+
     if(!$salt_result){
         throw new Exception("Salt Generation failed: ". pg_last_error());
     }

@@ -70,3 +70,24 @@ function flashMessage() : string {
     removeFlashMessage();
     return $message();
 }
+
+/**
+ * Sanitizes input param by trimming white spaces
+ * And removing HTML tags and special characters
+ * @param string $input
+ * @return string
+ */
+function sanitize(string $input): string
+{
+    // first trim
+    $input = trim($input);
+
+    // strip HTML
+    $input = strip_tags($input);
+
+    // remove special char
+    $input = htmlspecialchars($input,ENT_QUOTES, 'UTF-8');
+
+    return $input;
+
+}

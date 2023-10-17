@@ -26,9 +26,9 @@ Remember to:
 //ob_start();
 
 // 2. Include the required PHP files
-require_once 'config/constants.php';
-require_once 'lib/db_php.php';
-require_once 'lib/functions.php';
+//require_once 'config/constants.php';
+require_once './lib/db_php.php';
+require_once './lib/functions.php';
 
 
 // 3. Insert the beginning structure of the HTML layout (You can expand on this as necessary)
