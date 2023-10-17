@@ -58,7 +58,7 @@ Remember to:
 // 1. Display common footer content
 echo "<div class='footer'>
     
-    <h2><img src='../images/hippo-solid.svg' alt='hippo logo'> Developers</h2>
+    <h2><img src='images/hippo-solid.svg' alt='hippo logo'> Developers</h2>
     
     <p><span>&copy; " . date('Y') . "INFT2100 Group 2, Rhys Thompson, Mercelena Erazo Del Rio SN, Raisa Nasara.</span></p>
     <!-- You can add more footer links or information here -->

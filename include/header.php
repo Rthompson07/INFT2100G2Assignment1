@@ -48,21 +48,21 @@ echo '<!DOCTYPE html>
     <link rel="icon" href ="images/hippo-solid.svg" type="image/x-icon">  
 </head>
 <body>
-    <div class ="header">
-        <div class ="inner_header">
-            <div class = "logo_container">
+    <div class="header">
+    <div class="inner_header">
+        <div class="logo_container">
             <img src="./images/hippo-solid.svg" alt="hippo logo">
-            <h1>INFT-2100 Group 2&apos;s<span> Website</span></h1>
-            </div>
-            
-            <ul class = "navbar_header">
-            <a href=http://localhost:8080/Assignment1/index.php><li>Home</li></a>
-            <a><li>Sign Up</li></a>
-            <a><li>Sign In</li></a>
-            <a><li>About</li></a>
-            </ul>
+            <h1>INFT-2100 Group 2<span> Website</span></h1>
         </div>
-    </div>';
+
+        <ul class=navbar_header>
+            <a href="http://localhost:8080/Assignment1/index.php"><li>Home</li></a>
+            <a href="http://localhost:8080/Assignment1/sign-up.php"><li>Sign Up</li></a>
+            <a href="http://localhost:8080/Assignment1/sign-in.php"><li>Sign In</li></a>
+            <a href="#"><li>Log-Out</li></a>
+        </ul>
+    </div>
+</div>';
 //<div class="container"> // Closing div might be in the footer.php -->
 
 
