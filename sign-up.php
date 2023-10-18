@@ -3,7 +3,7 @@
 session_start();
 
 //include header and libraries
-include include 'include/headerlocked.php';
+include 'include/headerlocked.php';
 require_once 'lib/db_php.php';
 require_once 'lib/functions.php';
 
