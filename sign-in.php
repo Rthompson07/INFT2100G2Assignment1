@@ -27,7 +27,7 @@
 
 // TODO: Include necessary files like db.php and functions.php
 require_once 'lib/db_php.php';
-require_once 'include/header.php';
+include 'include/headerlocked.php';
 // TODO: Start the session if it hasn't been started already.
 session_start();
 // TODO: If the user is already logged in, redirect to the dashboard.

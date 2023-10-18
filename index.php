@@ -1,8 +1,13 @@
 <?php
 session_start();
-include 'include/header.php';
+include 'include/headerlocked.php';
 
+if (isset($_SESSION['user_authenticated']) && $_SESSION['user_authenticated'] === true) {
+// User is authenticated, show the navigation bar
+    include 'include/header.php';
+}
 ?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -13,15 +18,16 @@ include 'include/header.php';
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
 
-<h1 class="main-heading">Welcome to our website!</h1>
+<h1><br>Welcome to INFT-2100 Group2's Website!</h1>
 
-<p>This is the main page</p>
+<p>Need to create an account? Click <a href='sign-up.php'>Sign-Up</a> to register. </p>
+<p>Already have an account? Click <a href='sign-in.php'>Sign-In</a> to sign in. </p>
 
 
 <!-- Login in Sign Up Buttons-->
 
-    <a href="sign-in.php" id="sign-in-btn" class="btn btn-primary">Sign-In Here</a>
-    <a href="sign-up.php" id="sign-up-btn" class="btn btn-primary">Sign-Up Here</a>
+    <a href="sign-in.php"  class="btn btn-primary">Sign-In Here</a>
+    <a href="sign-up.php"  class="btn btn-primary">Sign-Up Here</a>
 
 
 
