@@ -55,7 +55,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             removeFlashMessage(); //clear message
         }
         ?>
-        <h1>Register Page</h1>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="bg-light p-5 rounded">
             <div class="form-group">
                 <label for="email">Email:</label>
