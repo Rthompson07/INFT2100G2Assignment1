@@ -46,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <div class="row">
     <div class="col-md-6 offset-md-3">
-        <h2>INFT2100 - User Registration</h2>
+        <h1>INFT2100 - User Registration</h1>
 
         <!--Display flash message -->
         <?php
@@ -55,6 +55,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             removeFlashMessage(); //clear message
         }
         ?>
+        <h1>Register Page</h1>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="bg-light p-5 rounded">
             <div class="form-group">
                 <label for="email">Email:</label>
@@ -73,6 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
+            <a href="index.php" class="btn btn-secondary">Return to Home Page</a>
         </form>
     </div>
 </div>
