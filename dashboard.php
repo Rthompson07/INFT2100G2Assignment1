@@ -28,21 +28,19 @@ Remember to:
 - Use prepared statements for database interactions to prevent SQL injection.
 - Ensure that only authenticated users can access and modify their details.
 */
-//1. Start session
-session_start();
 
-// 2. Include the header
+// 1. Include the header
 include 'include/header.php';
 
-// 3. Check user authentication
-
+// 2. Check user authentication
+session_start();
 if (!isset($_SESSION['email_address'])) {
     // Not authenticated, redirect to login
     header("Location: sign-in.php");
     exit;
 }
 
-// 4. Fetch user-specific data (placeholder, requires proper implementation)
+// 3. Fetch user-specific data (placeholder, requires proper implementation)
 // $email_address = $_SESSION['email_address'];
 // Fetch user details based on email address from the database
 // ...
@@ -204,6 +202,6 @@ echo "Welcome [User Name]!"; // Replace [User Name] with actual name from databa
 echo "<a href='logout.php'>Log Out</a>";
 
 // 7. Include the footer
-include 'include/footer.php';
+include 'include/header.php';
 ?>
 
