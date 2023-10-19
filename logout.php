@@ -23,17 +23,17 @@ require_once 'include/header.php';
 // TODO: Start the session if it hasn't been started already.
 session_start();
 
-// Check if the user is logged in (replace 'user_id' with your actual session variable)
+// Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
-    // User is not logged in, redirect to the login page
+    // User is not logged in, redirect to the sign-in.php page
     echo "you must be signed in to log out!";
-    header("Location: login.php");
+    header("Location: sign-in.php");
     exit();
 }
 // TODO: Destroy the user's session.
 session_destroy();
 // TODO: Redirect the user to the homepage or the login page.
-header("Location: sign-in.php");
+header("Location: index.php");
 exit();
 ?>
 
