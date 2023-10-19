@@ -26,23 +26,42 @@
  */
 
 // TODO: Include necessary files like db.php and functions.php
-require_once 'lib/db_php.php';
 include 'include/headerlocked.php';
+require_once 'lib/db_php.php';
+require_once 'lib/functions.php';
+
 // TODO: Start the session if it hasn't been started already.
 session_start();
+
 // TODO: If the user is already logged in, redirect to the dashboard.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     // TODO: Capture user input (email_address and password).
+    if (isset($_POST['email_address']) && isset($_POST['password'])) {
+        $email_address = $_POST['email_address'];
+        $password = $_POST['password'];
 
-    // TODO: Sanitize and validate user input.
+        // TODO: Sanitize and validate user input.
+        $email_address = sanitize($email_address);
 
-    // TODO: Check user credentials against the database.
+        // TODO: Check user credentials against the database.
+        $conn = db_connect();
+        $query = "SELECT * FROM user WHERE email = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->execute([$email_address]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // TODO: If credentials match, create a user session.
-
-    // TODO: If not, show an error message.
+        // TODO: If credentials match, create a user session.
+        if ($user && password_verify($password, $user['password'])) {
+            $_SESSION['user'] = $user;
+            header('location: dashboard.php'); // Redirect to the dashboard on successful login
+            exit();
+        } else {
+            // TODO: If not, show an error message.
+            $error_message = "Invalid credentials. Please try again.";
+        }
+    }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -52,19 +71,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- TODO: Add any necessary CSS or JS links here -->
 </head>
 <body>
 
 <!-- TODO: Display the sign-in form. Fields should include email_address and password -->
-<form action="sign-in.php" class="form-signin">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="email_address" class="sr-only">Email address</label>
-    <input type="email" id="email_address" class="form-control" placeholder="Email address" required autofocus>
-    <label for="password" class="sr-only">Password</label>
-    <input type="password" id="password" class="form-control" placeholder="Password" required>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-</form>
 
+<div class="container mt-5"
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+        <!--Display flash message -->
+        <?php
+        if(hasFlashMessage()){
+            echo '<div class="alert alert-danger" role="alert">' . getFlashMessage() . '</div>';
+            removeFlashMessage(); //clear message
+        }
+        ?>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="bg-light p-5 rounded">
+            <div class="form-group">
+                <label for="email_address" class="sr-only">Email address</label>
+                <input type="email" id="email_address" class="form-control" placeholder="Enter Email address" required autofocus>
+            </div>
+            <div class="form-group">
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Enter Password" required>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <a href="index.php" class="btn btn-secondary">Return to Home Page</a>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+<!-- ============================= Start of Footer ============================= -->
+<?php
+include 'include/footer.php';
+?>
