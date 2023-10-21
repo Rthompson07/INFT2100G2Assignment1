@@ -97,8 +97,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php
         if(isset($user)) {
             print_r($user);
-        } else {
-            echo('not user');
         }
 
         if(hasFlashMessage()){
