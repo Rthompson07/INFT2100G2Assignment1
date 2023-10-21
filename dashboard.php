@@ -21,7 +21,7 @@ $users = getAllUsers();
 // ...
 
 
-echo "Welcome! " . $_SESSION['first_name']; // Replace [User Name] with actual name from database
+echo '<div class="alert alert-success" role="alert"> Welcome '.$_SESSION['first_name'] . '</div>'
 
 // Display the Dashboard content
 ?>
