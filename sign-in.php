@@ -26,7 +26,7 @@
  */
 
 // TODO: Include necessary files like db.php and functions.php
-include 'include/headerlocked.php';
+include 'include/header.php';
 require_once 'lib/db_php.php';
 require_once 'lib/functions.php';
 

@@ -2,7 +2,7 @@
 
 
 // 1. Include the header
-include_once 'include/header.php';
+include 'include/header.php';
 
 
 
@@ -51,30 +51,26 @@ echo "Welcome! " . $_SESSION['first_name']; // Replace [User Name] with actual n
                 <th>User Type</th>
                 <th>Time Created</th>
 
-                <tbody>
-                <?php
-                foreach ($users as $user) {
-                    echo "<td>" . $user['id'] . "</td>";
-                    echo "<td>" . $user['email_address'] . "</td>";
-                    echo "<td>" . $user['first_name'] . "</td>";
-                    echo "<td>" . $user['last_name'] . "</td>";
-                    echo "<td>" . $user['phone_extension'] . "</td>";
-                    echo "<td>" . $user['user_type'] . "</td>";
-                    echo "<td>" . $user['created_time'] . "</td>";
-                    echo "</tr>";
-                }
-                ?>
+            <tbody>
+            <?php
+            foreach ($users as $user) {
+                echo "<td>" . $user['id'] . "</td>";
+                echo "<td>" . $user['email_address'] . "</td>";
+                echo "<td>" . $user['first_name'] . "</td>";
+                echo "<td>" . $user['last_name'] . "</td>";
+                echo "<td>" . $user['phone_extension'] . "</td>";
+                echo "<td>" . $user['user_type'] . "</td>";
+                echo "<td>" . $user['created_time'] . "</td>";
+                echo "</tr>";
+            }
+            ?>
         </table>
     </div>
 </div>
 
 <?php
-// 5. Edit Profile functionality (placeholder)
-// If user wishes to edit details, provide a form to update name, password, etc.
-// ...
 
-
-// 7. Include the footer
+// Include the footer
 include 'include/footer.php'
 ?>
 

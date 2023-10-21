@@ -77,7 +77,7 @@ You might use sessions to check if a user is logged in or not.
 // Sample stub (fill in the implementation)
 function createDynamicNavbar() {
 
-
+    include_once 'include/header.php';
 }
 
 
