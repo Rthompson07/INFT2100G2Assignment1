@@ -180,4 +180,23 @@ function registerUser(string $email_address, string $first_name, string $last_na
     return true;
 }
 
+// Check if user exists
+function updateUser(string $user_id, string $new_email, string $new_first_name, string $new_last_name, string $new_phone_ext,
+string $new_user_type) : bool {
+
+    $connection = db_connect();
+
+    $query = "UPDATE users SET email_address = $2, first_name = $3, last_name = $4, phone_extension = $5, user_type = $6 
+             WHERE id = $1 ";
+
+    $result = pg_query_params($connection, $query, array( $user_id, $new_email, $new_first_name, $new_last_name, $new_phone_ext
+    , $new_user_type));
+
+    if(!$result){
+        throw new Exception("Insertion Failed: " . pg_last_error());
+    }
+
+    return true;
+}
+
 

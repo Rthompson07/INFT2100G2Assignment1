@@ -97,10 +97,15 @@ function sanitize(string $input): string
  */
 function logOffUser(): void
 {
-    session_destroy();
-    session_unset();
-    //session_start();
-    header("Location: index.php");
+    if(isset($_SESSION['email_address'])){
+        session_destroy();
+        session_unset();
+    header("Location: index.php?logout=success");
+    exit;
+    }else{
+        header("Location: index.php");
+        exit;
+    }
     //ob_flush();
 
 }

@@ -45,6 +45,8 @@ const PENDING = 'p';
 
 const DISABLED = 'd';
 
+const Villain = 'v';
+
 // 2. Other application-wide constants can be defined below
 
 // e.g., API keys, directory paths, etc.

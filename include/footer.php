@@ -60,7 +60,7 @@ echo "<div class='footer'>
     
     <h2><img src='images/hippo-solid.svg' alt='hippo logo'> Developers</h2>
     
-    <p><span>&copy; " . date('Y') . "INFT2100 Group 2, Rhys Thompson, Mercelena Erazo Del Rio SN, Raisa Nasara.</span></p>
+    <p><span>&copy; " . date('Y') . " INFT-2100-Group 2, Rhys Thompson 100845373, Mercelena Erazo 100884604, Raisa Nasara 100887894.</span></p>
     <!-- You can add more footer links or information here -->
 </div>";
 

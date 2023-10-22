@@ -5,12 +5,18 @@
 include 'include/header.php';
 
 
+if (isset($_SESSION['edit'])) {
+    echo '<div class="alert alert-success" role="alert">Update successful!</div>';
+    unset($_SESSION['edit']); // Clear the success message
+}
+
+
 
 // 2. Check user authentication
 //session_start();
 if (!isset($_SESSION['email_address'])) {
     // Not authenticated, redirect to login
-    header("Location: sign-in.php");
+    header("sign-in.php");
     exit;
 }
 
@@ -21,23 +27,17 @@ $users = getAllUsers();
 // ...
 
 
-echo '<div class="alert alert-success" role="alert"> Welcome '.$_SESSION['first_name'] . '</div>'
+echo '<div class="alert alert-success" role="alert"> Welcome '. $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] .  '</div>';
+
 
 // Display the Dashboard content
 ?>
 <div class="container">
     <h1 class="h2">Dashboard</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group mr-2">
-            <button class="btn btn-sm btn-outline-secondary">Share</button>
-            <button class="btn btn-sm btn-outline-secondary">Export</button>
-        </div>
-        <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-        </button>
+        <p>Here are our user entries</p>
     </div>
-
+    <h4><br>Select <q>ID</q> number to edit employee information</h4>
     <h2>Section title</h2>
     <div class="table-responsive">
         <table class="table table-striped table-sm">
@@ -54,7 +54,11 @@ echo '<div class="alert alert-success" role="alert"> Welcome '.$_SESSION['first_
             <tbody>
             <?php
             foreach ($users as $user) {
-                echo "<td>" . $user['id'] . "</td>";
+                echo '<td><a href="edituser.php?id=' . urlencode($user['id']) . '&email=' . urlencode($user['email_address'])
+                . '&first_name=' . urlencode($user['first_name']) . '&last_name=' . urlencode($user['last_name']) .
+                    '&phone_extension=' . urlencode($user['phone_extension']) . '&user_type=' . urlencode($user['user_type']) . '">'
+                    .  $user['id'] . '</a></td>';
+
                 echo "<td>" . $user['email_address'] . "</td>";
                 echo "<td>" . $user['first_name'] . "</td>";
                 echo "<td>" . $user['last_name'] . "</td>";
@@ -62,6 +66,8 @@ echo '<div class="alert alert-success" role="alert"> Welcome '.$_SESSION['first_
                 echo "<td>" . $user['user_type'] . "</td>";
                 echo "<td>" . $user['created_time'] . "</td>";
                 echo "</tr>";
+
+
             }
             ?>
         </table>

@@ -25,8 +25,9 @@
  * - Handle session securely.
  */
 
+
 // TODO: Include necessary files like db.php and functions.php
-include 'include/header.php';
+include 'include/headerlocked.php';
 require_once 'lib/db_php.php';
 require_once 'lib/functions.php';
 
@@ -35,12 +36,11 @@ require_once 'lib/functions.php';
 
 // TODO: If the user is already logged in, redirect to the dashboard.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo('im in method post');
+
     // TODO: Capture user input (email_address and password).
     if (isset($_POST['email_address']) && isset($_POST['password'])) {
         $email_address = $_POST['email_address'];
         $password = $_POST['password'];
-        echo('im doing the validation');
         // TODO: Sanitize and validate user input.
         $email_address = sanitize($email_address);
 
@@ -62,12 +62,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             print_r($user);
             $_SESSION['email_address'] = $user['email_address'];
             $_SESSION['first_name'] = $user['first_name'];
+            $_SESSION['last_name'] = $user['last_name'];
             header('Location: dashboard.php');
             ob_flush();
             exit();
         } else {
             // TODO: If not, show an error message.
-            $error_message = "Invalid credentials. Please try again.";
+            setFlashMessage("Invalid credentials. Please try again.");
         }
     }
 }
@@ -92,13 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="row">
     <div class="col-md-6 offset-md-3">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-
-        <!--Display flash message -->
         <?php
-        if(isset($user)) {
-            print_r($user);
-        }
-
         if(hasFlashMessage()){
             echo '<div class="alert alert-danger" role="alert">' . getFlashMessage() . '</div>';
             removeFlashMessage(); //clear message
@@ -114,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" required>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-            <a href="index.php" class="btn btn-secondary">Return to Home Page</a>
+            <a href="index.php" class="btn btn-secondary">Return to Index</a>
         </form>
     </div>
 </div>

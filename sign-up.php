@@ -1,6 +1,5 @@
 <?php
-//start session
-session_start();
+
 
 //include header and libraries
 include 'include/headerlocked.php';
@@ -92,10 +91,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <select name="user_type" class="form-control">
                     <option value="a">Agent</option>
                     <option value="c">Client</option>
+                    <option value="s">Super Admin (Hero)</option>
+                    <option value="p">Pending User</option>
+                    <option value="d">Discharged</option>
+                    <option value="v">Villain</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
-            <a href="index.php" class="btn btn-secondary">Return to Home Page</a>
+            <a href="index.php" class="btn btn-secondary">Return to Index</a>
         </form>
     </div>
 </div>

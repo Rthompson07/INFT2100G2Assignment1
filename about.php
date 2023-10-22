@@ -1,6 +1,6 @@
 <?php
 //session_start();
-include 'include/headerlocked.php';
+include 'include/header.php';
 
 if (isset($_SESSION['user_authenticated']) && $_SESSION['user_authenticated'] === true) {
 // User is authenticated, show the navigation bar
@@ -17,7 +17,6 @@ if (isset($_SESSION['user_authenticated']) && $_SESSION['user_authenticated'] ==
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
-
 <?php
 
 if(isset($_GET['logout']) && $_GET['logout'] === 'success' ){
@@ -26,18 +25,13 @@ if(isset($_GET['logout']) && $_GET['logout'] === 'success' ){
 
 ?>
 <div class="container mt-5">
+<h1><br>About Us</h1>
+<hr>
 
-<h1><br>Welcome to INFT-2100 Group2's Website!</h1>
-
-<p>Need to create an account? Click <a href='sign-up.php'>Sign-Up</a> to register. </p>
-<p>Already have an account? Click <a href='sign-in.php'>Sign-In</a> to sign in. </p>
-
-
-<!-- Login in Sign Up Buttons-->
-
-    <a href="sign-in.php"  class="btn btn-primary">Sign-In Here</a>
-    <a href="sign-up.php"  class="btn btn-primary">Sign-Up Here</a>
-
+<p>We are Group 2! We are a team of three students currently attending school at <a href="https://durhamcollege.ca " >Durham College</a>
+    studying Computer Programing. In this web application, we are creating a website which will first ask the user to create a
+    profile for themselves. When the user enters the correct data into the sign-up.php page. They will be redirected to the sign-in.php page. At that
+    point, the user can use their newly created email and password to log into the dashboard.php page. </p>
 
 </div>
 </body>

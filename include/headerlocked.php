@@ -1,9 +1,10 @@
 <?php
 
 //require_once 'config/constants.php';
-require_once './lib/db_php.php';
-require_once './lib/functions.php';
-
+//require_once './lib/db_php.php';
+//require_once './lib/functions.php';
+session_start();
+ob_start();
 
 
 echo '<!DOCTYPE html>
